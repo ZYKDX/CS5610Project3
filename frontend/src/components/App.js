@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Signin from "./components/signin";
+import Signin from "./signin";
+import Homepage from "./homepage";
 
 export default function App() {
   const [user, setUser] = useState();
@@ -16,6 +17,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" exact element={<Homepage user={user} />} />
         <Route path="/signin" element={<Signin />} />
       </Routes>
     </BrowserRouter>

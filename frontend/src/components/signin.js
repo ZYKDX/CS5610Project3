@@ -11,23 +11,25 @@ export default function Signin() {
   });
 
   async function onSubmit(evt) {
+    console.log("submitting");
     evt.preventDefault();
     const data = {
       userid: values.userid,
       password: values.password,
       email: values.email,
     };
-    // const res = await fetch("/api/signin", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(data),
-    // });
-    // if (res.status === 200) {
-    //   alert("Sign in successful!");
-    // } else {
-    //   alert("Sign in failure, please check your username or password");
-    // }
-    // window.location.href = "/";
+    const res = await fetch("./authenticate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    console.log(res);
+    const resUser = await res.json();
+      if (resUser.isLoggedIn) {
+        window.location.href = "/";
+      } else {
+        //showMessage(resUser.err);
+      }
   }
 
   return (
