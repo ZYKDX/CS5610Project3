@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signin from "./signin";
+import Signup from "./signup";
 import Homepage from "./homepage";
 
 export default function App() {
@@ -19,16 +20,18 @@ export default function App() {
       <Routes>
         <Route path="/" exact element={<Homepage user={user} />} />
         <Route path="/signin" element={<Signin />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );
 }
 
 async function getUsername() {
-  const res = await fetch("/api/user");
+  const res = await fetch("/getCurrentUser");
+  console.log(res);
   if (res.status === 200) {
     const users = await res.json();
-    const username = await users.username;
+    const username = users.user;
     return username;
   }
 }

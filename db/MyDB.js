@@ -8,7 +8,7 @@ function MyDB() {
     let client;
     try {
       client = new MongoClient(mongoURL);
-      const users = client.db("Diary").collection("users");
+      const users = client.db("AlignCareer").collection("users");
       const success = await users.findOne({user:user.user});
       if(success) {
         return false;
@@ -16,7 +16,7 @@ function MyDB() {
       await users.insertOne(user);
       return true;
     } finally {
-      console.log("Diary: Closing db connection");
+      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -24,11 +24,11 @@ function MyDB() {
     let client;
     try {
       client = new MongoClient(mongoURL);
-      const users = client.db("Diary").collection("users");
+      const users = client.db("AlignCareer").collection("users");
       const res = await users.findOne({user:user.user});
       return res;
     } finally {
-      console.log("Diary: Closing db connection");
+      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -36,13 +36,13 @@ function MyDB() {
     let client;
     try {
       client = new MongoClient(mongoURL);
-      const users = client.db("Diary").collection("users");
+      const users = client.db("AlignCareer").collection("users");
       console.log("user " + user);
       console.log(profile);
       const res = await users.updateOne({user:user.user}, {$set:{location:profile.location, hobby:profile.hobby}});
       return res;
     } finally {
-      console.log("Diary: Closing db connection");
+      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -50,14 +50,14 @@ function MyDB() {
     let client;
     try {
       client = new MongoClient(mongoURL);
-      const users = client.db("Diary").collection("users");
+      const users = client.db("AlignCareer").collection("users");
       const userInDb = await users.findOne({user:user.user});
       if(!userInDb) {
         return false;
       }
       return userInDb.password == user.password;
     } finally {
-      console.log("Diary: Closing db connection");
+      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -65,12 +65,12 @@ function MyDB() {
     let client;
     try {
       client = new MongoClient(mongoURL);
-      const diaries = client.db("Diary").collection("diaries");
+      const diaries = client.db("AlignCareer").collection("diaries");
       const res = await diaries.insertOne({author:user.user, title:entry.title, content:entry.content});
       //console.log(res);
       return res;
     } finally {
-      console.log("Diary: Closing db connection");
+      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -78,11 +78,11 @@ function MyDB() {
     let client;
     try {
       client = new MongoClient(mongoURL);
-      const diaries = client.db("Diary").collection("diaries");
+      const diaries = client.db("AlignCareer").collection("diaries");
       const res = await diaries.find({author:user.user}).toArray();
       return res;
     } finally {
-      console.log("Diary: Closing db connection");
+      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -90,12 +90,12 @@ function MyDB() {
     let client;
     try {
       client = new MongoClient(mongoURL);
-      const diaries = client.db("Diary").collection("diaries");
+      const diaries = client.db("AlignCareer").collection("diaries");
       const res = await diaries.findOne({_id:ObjectId(id)});
       console.log(res);
       return res;
     } finally {
-      console.log("Diary: Closing db connection");
+      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -103,11 +103,11 @@ function MyDB() {
     let client;
     try {
       client = new MongoClient(mongoURL);
-      const diaries = client.db("Diary").collection("diaries");
+      const diaries = client.db("AlignCareer").collection("diaries");
       const res = await diaries.update({_id:ObjectId(id)}, {$set:{content:entry.content}});
       return res;
     } finally {
-      console.log("Diary: Closing db connection");
+      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -115,11 +115,11 @@ function MyDB() {
     let client;
     try {
       client = new MongoClient(mongoURL);
-      const diaries = client.db("Diary").collection("diaries");
+      const diaries = client.db("AlignCareer").collection("diaries");
       const res = await diaries.deleteOne({_id:ObjectId(id)});
       return res;
     } finally {
-      console.log("Diary: Closing db connection");
+      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };

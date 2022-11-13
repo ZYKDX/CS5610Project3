@@ -14,8 +14,10 @@ router.get("/getCurrentUser", (req, res) => {
 router.post("/authenticate", async (req, res) => {
   // TODO: validate that the user data is correct
   const user = req.body;
+  console.log("user " + user.user);
   const success = await myDB.authenticate(user);
   if (success) {
+    console.log("user " + user.user);
     req.session.user = { user: user.user };
     res.json({ isLoggedIn: true, err: null });
   } else {
