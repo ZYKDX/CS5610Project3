@@ -75,7 +75,7 @@ export default function Signup() {
               id="form2Example2"
               name="password"
               class="form-control"
-              required="true"
+              required={true}
               value={values.password}
               onChange={e=>{
                 setValues((values)=>({
@@ -94,7 +94,7 @@ export default function Signup() {
               id="email"
               name="email"
               class="form-control"
-              required="true"
+              required={true}
               value={values.email}
               onChange={e=>{
                 setValues((values)=>({

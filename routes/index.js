@@ -14,10 +14,8 @@ router.get("/getCurrentUser", (req, res) => {
 router.post("/authenticate", async (req, res) => {
   // TODO: validate that the user data is correct
   const user = req.body;
-  console.log("user " + user.user);
   const success = await myDB.authenticate(user);
   if (success) {
-    console.log("user " + user.user);
     req.session.user = { user: user.user };
     res.json({ isLoggedIn: true, err: null });
   } else {
@@ -57,9 +55,9 @@ router.post("/updateProfile", async (req, res) => {
   res.json({msg: "Profile updated" });
 });
 
-router.get("/listDiaries", async (req, res) => {
-    const diaries = await myDB.listDiaries(req.session.user);
-    res.json(diaries);
+router.get("/listPosts", async (req, res) => {
+    const posts = await myDB.listPosts();
+    res.json(posts);
 });
 
 router.post("/createDiary", async (req, res) => {

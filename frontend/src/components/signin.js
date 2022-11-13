@@ -8,6 +8,7 @@ export default function Signin() {
     username: "",
     password: "",
    });
+  const [signinError, setSigninError] = useState("");
 
   function handleChange(evt) {
     console.log(evt);
@@ -19,7 +20,6 @@ export default function Signin() {
 }
 
   async function onSubmit(evt) {
-    console.log("submitting");
     evt.preventDefault();
     const data = {
       user: values.username,
@@ -35,18 +35,19 @@ export default function Signin() {
       if (resUser.isLoggedIn) {
         window.location.href = "/";
       } else {
-        //showMessage(resUser.err);
+        setSigninError(resUser.err);
       }
   }
 
   return (
     <div class="container mt-5">
+        {signinError !== "" &&
         <div
           class="alert alert-warning alert-dismissible fade show"
           role="alert"
           id="msg"
         >
-          <span id="msgContent"></span>
+          <span id="msgContent">{signinError}</span>
           <button
             type="button"
             class="btn-close"
@@ -54,6 +55,7 @@ export default function Signin() {
             aria-label="Close"
           ></button>
         </div>
+      }
         <h1 class="text-center">Welcome to NEU Align Career!</h1>
         <form id="login" method="post" onSubmit={onSubmit}>
           <div class="form-outline mb-4">
@@ -61,11 +63,11 @@ export default function Signin() {
               type="user"
               name="username"
               class="form-control"
-              required="true"
+              required={true}
               value={values.username}
               onChange={handleChange}
             />
-            <label class="form-label" for="form2Example1">User ID</label>
+            <label class="form-label">User ID</label>
           </div>
 
           <div class="form-outline mb-4">
@@ -73,11 +75,11 @@ export default function Signin() {
               type="password"
               name="password"
               class="form-control"
-              required="true"
+              required={true}
               value={values.password}
               onChange={handleChange}
             />
-            <label class="form-label" for="form2Example2">Password</label>
+            <label class="form-label">Password</label>
           </div>
 
           <button type="submit" class="btn btn-primary btn-block mb-4">

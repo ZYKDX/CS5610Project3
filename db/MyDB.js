@@ -74,12 +74,12 @@ function MyDB() {
       client.close();
     }
   };
-  myDB.listDiaries = async function (user = {}) {
+  myDB.listPosts = async function () {
     let client;
     try {
       client = new MongoClient(mongoURL);
-      const diaries = client.db("AlignCareer").collection("diaries");
-      const res = await diaries.find({author:user.user}).toArray();
+      const posts = client.db("AlignCareer").collection("posts");
+      const res = await posts.find().toArray();
       return res;
     } finally {
       console.log("AlignCareer: Closing db connection");
