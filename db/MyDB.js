@@ -39,7 +39,7 @@ function MyDB() {
       const users = client.db("AlignCareer").collection("users");
       console.log("user " + user);
       console.log(profile);
-      const res = await users.updateOne({user:user.user}, {$set:{location:profile.location, hobby:profile.hobby}});
+      const res = await users.updateOne({user:user.user}, {$set:{location:profile.location, program:profile.program,offers:profile.offers,skills:profile.skills}});
       return res;
     } finally {
       console.log("AlignCareer: Closing db connection");

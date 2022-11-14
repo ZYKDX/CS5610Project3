@@ -11,7 +11,6 @@ export default function Signin() {
   const [signinError, setSigninError] = useState("");
 
   function handleChange(evt) {
-    console.log(evt);
     const value = evt.target.value;
     setValues({
       ...values,
