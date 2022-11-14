@@ -5,11 +5,7 @@ import Signin from "./signin";
 export default function Homepage(props) {
   return (
     <div>
-      {props.user === undefined ? (
-        <Signin/>
-      ) : (
-        <Dashboard/>
-      )}
+      {props.user === undefined ? (<Signin/>) : (<Dashboard/>)}
     </div>
   );
 }

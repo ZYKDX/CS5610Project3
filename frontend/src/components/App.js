@@ -10,7 +10,6 @@ import Post from "./post";
 
 export default function App() {
   const [user, setUser] = useState();
-
   useEffect(() => {
     getUsername().then((username) => {
       setUser(username);
@@ -19,15 +18,15 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" exact element={<Homepage user={user} />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/addpost" element={<Addpost />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/editprofile" element={<EditProfile />} />
-        <Route path="/post" element={<Post />} />
-      </Routes>
+        <Routes>
+          <Route path="/" exact element={<Homepage user={user} />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/addpost" element={<Addpost />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/editprofile" element={<EditProfile />} />
+          <Route path="/post" element={<Post />} />
+        </Routes>
     </BrowserRouter>
   );
 }
