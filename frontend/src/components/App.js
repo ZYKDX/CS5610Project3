@@ -7,6 +7,7 @@ import Addpost from "./addpost";
 import Profile from "./profile";
 import EditProfile from "./editprofile";
 import Post from "./post";
+import NewPost from "./newpost";
 
 export default function App() {
   const [user, setUser] = useState();
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/editprofile" element={<EditProfile />} />
           <Route path="/post" element={<Post />} />
+          <Route path="/newpost" element={<NewPost />} />
         </Routes>
     </BrowserRouter>
   );

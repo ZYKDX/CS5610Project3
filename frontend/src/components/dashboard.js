@@ -22,6 +22,12 @@ export default function Dashboard(props) {
       });
   }, []);
 
+  function handleClickShare(e) {
+    e.preventDefault();
+    console.log("handle click share");
+    window.location.href = "/newpost";
+  }
+
   return (
     <div>
     <Header></Header>
@@ -33,7 +39,7 @@ export default function Dashboard(props) {
             class="btn btn-primary me-md-2 justify-content-md-end"
             id="newpost"
             type="button"
-          >
+            onClick={handleClickShare}>
             Share my experience
           </button>
           </div>

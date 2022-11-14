@@ -60,11 +60,10 @@ router.get("/listPosts", async (req, res) => {
     res.json(posts);
 });
 
-router.post("/createDiary", async (req, res) => {
-    console.log("createDiary");
+router.post("/createPost", async (req, res) => {
     console.log(req.body);
-    await myDB.createDiary(req.body, req.session.user);
-    res.json({msg: "Diary saved" });
+    await myDB.createPost(req.body, req.session.user);
+    res.json({msg: "Post saved" });
 });
 
 router.post("/editDiary", async (req, res) => {

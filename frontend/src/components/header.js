@@ -29,8 +29,13 @@ export default function Header(props) {
 
 async function getUsername() {
   const res = await fetch("/getCurrentUser");
-  if (res.status === 200) {
-    const json = await res.json();
-    return json.user.user;
+  if (res.status !== 200) {
+    return;
   }
+  const json = await res.json();
+  if (!json.isLoggedIn) {
+    window.location.href = "/";
+    return;
+  }
+  return json.user.user;
 }

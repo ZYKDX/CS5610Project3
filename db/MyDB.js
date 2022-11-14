@@ -61,13 +61,12 @@ function MyDB() {
       client.close();
     }
   };
-  myDB.createDiary = async function (entry = {}, user = {}) {
+  myDB.createPost = async function (entry = {}, user = {}) {
     let client;
     try {
       client = new MongoClient(mongoURL);
-      const diaries = client.db("AlignCareer").collection("diaries");
-      const res = await diaries.insertOne({author:user.user, title:entry.title, content:entry.content});
-      //console.log(res);
+      const posts = client.db("AlignCareer").collection("posts");
+      const res = await posts.insertOne({author:user.user, title:entry.title, content:entry.content});
       return res;
     } finally {
       console.log("AlignCareer: Closing db connection");
