@@ -6,11 +6,10 @@ import Homepage from "./homepage";
 import Addpost from "./addpost";
 import Profile from "./profile";
 import EditProfile from "./editprofile";
+import Post from "./post";
 
 export default function App() {
   const [user, setUser] = useState();
-  const [list, setList] = useState([]);
-  const [expense, setExpense] = useState({});
 
   useEffect(() => {
     getUsername().then((username) => {
@@ -27,6 +26,7 @@ export default function App() {
         <Route path="/addpost" element={<Addpost />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/editprofile" element={<EditProfile />} />
+        <Route path="/post" element={<Post />} />
       </Routes>
     </BrowserRouter>
   );
@@ -34,7 +34,6 @@ export default function App() {
 
 async function getUsername() {
   const res = await fetch("/getCurrentUser");
-  console.log(res);
   if (res.status === 200) {
     const users = await res.json();
     const username = users.user;

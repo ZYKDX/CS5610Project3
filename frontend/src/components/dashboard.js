@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Postentry from "./postentry";
+import Header from "./header";
 
 
 export default function Dashboard(props) {
@@ -22,21 +23,9 @@ export default function Dashboard(props) {
   }, []);
 
   return (
+    <div>
+    <Header user={props.user}></Header>
     <div class="container">
-      <main>
-        <ul class="nav justify-content-end">
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              id="navUsername"
-              aria-current="page"
-              href="./profile"
-              >Welcome!</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="linkLogout" href="/logout">Log Out</a>
-          </li>
-        </ul>
         <div class="mt-4 mb-4 d-flex justify-content-between">
           <div class="h1">Welcome to NEU Align Career!</div>
           <div>
@@ -53,13 +42,14 @@ export default function Dashboard(props) {
         <div id="list" class="list-group">
           {list.map((i, index) => (
             <Postentry
+              id={i._id}
               author={i.author}
               title={i.title}
               content={i.content}
             />
           ))}
         </div>
-      </main>
+    </div>
     </div>
   );
 }

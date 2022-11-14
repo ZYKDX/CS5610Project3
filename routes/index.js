@@ -80,11 +80,10 @@ router.get("/deleteDiary", async (req, res) => {
     res.json({msg: "Diary deleted" });
 });
 
-router.get("/getDiary", async (req, res) => {
-    console.log("getDiary");
+router.get("/getPost", async (req, res) => {
     console.log(req.query.id);
-    const diary = await myDB.getDiary(req.query.id);
-    res.json(diary);
+    const post = await myDB.getPost(req.query.id);
+    res.json(post);
 });
 
 export default router;

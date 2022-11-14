@@ -86,13 +86,12 @@ function MyDB() {
       client.close();
     }
   };
-  myDB.getDiary = async function (id = "") {
+  myDB.getPost = async function (id = "") {
     let client;
     try {
       client = new MongoClient(mongoURL);
-      const diaries = client.db("AlignCareer").collection("diaries");
-      const res = await diaries.findOne({_id:ObjectId(id)});
-      console.log(res);
+      const posts = client.db("AlignCareer").collection("posts");
+      const res = await posts.findOne({_id:ObjectId(id)});
       return res;
     } finally {
       console.log("AlignCareer: Closing db connection");

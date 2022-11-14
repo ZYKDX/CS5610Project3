@@ -1,6 +1,6 @@
 import React from "react";
 import { useState,useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import Header from "./header";
 
 export default function Profile() {
   const [profile, setProfile] = useState({
@@ -32,19 +32,9 @@ export default function Profile() {
   }
 
   return (
+    <div>
+    <Header user="test"></Header>
     <div class="container-md">
-        <ul class="nav justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="navUsername" aria-current="page" href="./"
-              >Welcome</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="linkLogout" href="/logout">Log Out</a>
-          </li>
-        </ul>
         <div class="h1">About me</div>
         <table class="table table-default">
         <tbody>
@@ -79,6 +69,7 @@ export default function Profile() {
             Edit
           </button>
         </div>
+    </div>
     </div>
   );
 }

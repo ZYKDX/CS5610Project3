@@ -8,7 +8,7 @@ export default function Homepage(props) {
       {props.user === undefined ? (
         <Signin/>
       ) : (
-        <Dashboard user={props.user}/>
+        <Dashboard user={props.user.user}/>
       )}
     </div>
   );
