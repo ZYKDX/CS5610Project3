@@ -1,6 +1,5 @@
 import React from "react";
 import { useState,useEffect } from "react";
-import { NavLink } from "react-router-dom";
 
 export default function EditProfile() {
   const [profile, setProfile] = useState({

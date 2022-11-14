@@ -1,6 +1,14 @@
-import React from "react";
+import React,{ useState, useEffect } from "react";
 
 export default function Header(props) {
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    getUsername().then((username) => {
+      setUser(username);
+    });
+  }, []);
+
   return (
     <div class="container">
       <ul class="nav justify-content-end">
@@ -8,8 +16,8 @@ export default function Header(props) {
           <a class="nav-link" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="navUsername" aria-current="page" href="/profile"
-            >Welcome {props.user.user}!</a>
+          <a class="nav-link" id="navUsername" aria-current="page" href="/profile">
+            Welcome {user}!</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="linkLogout" href="/logout">Log Out</a>
@@ -17,4 +25,12 @@ export default function Header(props) {
       </ul>
     </div>
   );
+}
+
+async function getUsername() {
+  const res = await fetch("/getCurrentUser");
+  if (res.status === 200) {
+    const json = await res.json();
+    return json.user.user;
+  }
 }

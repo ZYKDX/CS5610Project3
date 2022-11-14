@@ -24,7 +24,7 @@ export default function Dashboard(props) {
 
   return (
     <div>
-    <Header user={props.user}></Header>
+    <Header></Header>
     <div class="container">
         <div class="mt-4 mb-4 d-flex justify-content-between">
           <div class="h1">Welcome to NEU Align Career!</div>
