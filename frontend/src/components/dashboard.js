@@ -30,7 +30,7 @@ export default function Dashboard(props) {
               class="nav-link"
               id="navUsername"
               aria-current="page"
-              href="./profile.html"
+              href="./profile"
               >Welcome!</a>
           </li>
           <li class="nav-item">
@@ -62,13 +62,4 @@ export default function Dashboard(props) {
       </main>
     </div>
   );
-}
-
-async function getUsername() {
-  const res = await fetch("/api/user");
-  if (res.status === 200) {
-    const users = await res.json();
-    const username = await users.username;
-    return username;
-  }
 }

@@ -4,6 +4,7 @@ import Signin from "./signin";
 import Signup from "./signup";
 import Homepage from "./homepage";
 import Addpost from "./addpost";
+import Profile from "./profile";
 
 export default function App() {
   const [user, setUser] = useState();
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/addpost" element={<Addpost />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );
