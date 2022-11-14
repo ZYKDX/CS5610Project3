@@ -7,7 +7,7 @@ export default function Addpost() {
   const [values, setValues] = useState({
     username: "",
     password: "",
-   });
+  });
   const [signinError, setSigninError] = useState("");
 
   function handleChange(evt) {
@@ -15,9 +15,9 @@ export default function Addpost() {
     const value = evt.target.value;
     setValues({
       ...values,
-      [evt.target.name]: value
+      [evt.target.name]: value,
     });
-}
+  }
 
   async function onSubmit(evt) {
     evt.preventDefault();
@@ -31,23 +31,25 @@ export default function Addpost() {
       body: JSON.stringify(data),
     });
     const resUser = await res.json();
-      if (resUser.isLoggedIn) {
-        window.location.href = "/";
-      } else {
-        setSigninError(resUser.err);
-      }
+    if (resUser.isLoggedIn) {
+      window.location.href = "/";
+    } else {
+      setSigninError(resUser.err);
+    }
   }
 
   return (
     <div class="container">
       <ul class="nav justify-content-end">
         <li class="nav-item">
-          <a class="nav-link" id="navUsername" aria-current="page" href="./"
-            >Welcome</a
-          >
+          <a class="nav-link" id="navUsername" aria-current="page" href="./">
+            Welcome
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="linkLogout" href="/logout">Log Out</a>
+          <a class="nav-link" id="linkLogout" href="/logout">
+            Log Out
+          </a>
         </li>
       </ul>
       <div class="mt-4 mb-4 d-flex justify-content-between">
@@ -68,9 +70,9 @@ export default function Addpost() {
       </div>
       <form id="newdiary">
         <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"
-            >Title</label
-          >
+          <label for="exampleFormControlInput1" class="form-label">
+            Title
+          </label>
           <input
             name="title"
             class="form-control"
@@ -79,9 +81,9 @@ export default function Addpost() {
           />
         </div>
         <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label"
-            >Context</label
-          >
+          <label for="exampleFormControlTextarea1" class="form-label">
+            Context
+          </label>
           <textarea
             name="content"
             class="form-control"

@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Header(props) {
   const [user, setUser] = useState();
@@ -13,14 +13,24 @@ export default function Header(props) {
     <div class="container">
       <ul class="nav justify-content-end">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/">Home</a>
+          <a class="nav-link" aria-current="page" href="/">
+            Home
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="navUsername" aria-current="page" href="/profile">
-            Welcome {user}!</a>
+          <a
+            class="nav-link"
+            id="navUsername"
+            aria-current="page"
+            href="/profile"
+          >
+            Welcome {user}!
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="linkLogout" href="/logout">Log Out</a>
+          <a class="nav-link" id="linkLogout" href="/logout">
+            Log Out
+          </a>
         </li>
       </ul>
     </div>

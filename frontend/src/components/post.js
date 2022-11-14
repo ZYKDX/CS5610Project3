@@ -1,5 +1,5 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import Header from "./header";
 
 export default function Post() {
@@ -8,7 +8,7 @@ export default function Post() {
     title: "",
     content: "",
     author: "",
-   });
+  });
 
   useEffect(() => {
     getPost().then((post) => {
@@ -28,27 +28,29 @@ export default function Post() {
 
   return (
     <div>
-    <Header></Header>
+      <Header></Header>
       <div class="container-md">
-        <h1 id="title" class="text-center mb-4">{post.title}</h1>
-        <h5 id="content" class="mb-4">{post.content}</h5>
+        <h1 id="title" class="text-center mb-4">
+          {post.title}
+        </h1>
+        <h5 id="content" class="mb-4">
+          {post.content}
+        </h5>
         <div class="d-flex justify-content-center">
-        {
-          post.author === user ? (
+          {post.author === user ? (
             <div>
-            <button id="edit" type="button" class="btn btn-primary mx-5">
-           Edit
-         </button>
-         <button id="delete" type="button" class="btn btn-danger mx-5">
-           Delete
-         </button>
-         </div>
+              <button id="edit" type="button" class="btn btn-primary mx-5">
+                Edit
+              </button>
+              <button id="delete" type="button" class="btn btn-danger mx-5">
+                Delete
+              </button>
+            </div>
           ) : (
             <button id="author" type="button" class="btn btn-primary mx-5">
               Contact Author
             </button>
-          )
-        }
+          )}
         </div>
       </div>
     </div>

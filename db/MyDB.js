@@ -9,8 +9,8 @@ function MyDB() {
     try {
       client = new MongoClient(mongoURL);
       const users = client.db("AlignCareer").collection("users");
-      const success = await users.findOne({user:user.user});
-      if(success) {
+      const success = await users.findOne({ user: user.user });
+      if (success) {
         return false;
       }
       await users.insertOne(user);
@@ -25,7 +25,7 @@ function MyDB() {
     try {
       client = new MongoClient(mongoURL);
       const users = client.db("AlignCareer").collection("users");
-      const res = await users.findOne({user:user.user});
+      const res = await users.findOne({ user: user.user });
       return res;
     } finally {
       console.log("AlignCareer: Closing db connection");
@@ -39,7 +39,17 @@ function MyDB() {
       const users = client.db("AlignCareer").collection("users");
       console.log("user " + user);
       console.log(profile);
-      const res = await users.updateOne({user:user.user}, {$set:{location:profile.location, program:profile.program,offers:profile.offers,skills:profile.skills}});
+      const res = await users.updateOne(
+        { user: user.user },
+        {
+          $set: {
+            location: profile.location,
+            program: profile.program,
+            offers: profile.offers,
+            skills: profile.skills,
+          },
+        }
+      );
       return res;
     } finally {
       console.log("AlignCareer: Closing db connection");
@@ -51,8 +61,8 @@ function MyDB() {
     try {
       client = new MongoClient(mongoURL);
       const users = client.db("AlignCareer").collection("users");
-      const userInDb = await users.findOne({user:user.user});
-      if(!userInDb) {
+      const userInDb = await users.findOne({ user: user.user });
+      if (!userInDb) {
         return false;
       }
       return userInDb.password == user.password;
@@ -66,7 +76,11 @@ function MyDB() {
     try {
       client = new MongoClient(mongoURL);
       const posts = client.db("AlignCareer").collection("posts");
-      const res = await posts.insertOne({author:user.user, title:entry.title, content:entry.content});
+      const res = await posts.insertOne({
+        author: user.user,
+        title: entry.title,
+        content: entry.content,
+      });
       return res;
     } finally {
       console.log("AlignCareer: Closing db connection");
@@ -90,7 +104,7 @@ function MyDB() {
     try {
       client = new MongoClient(mongoURL);
       const posts = client.db("AlignCareer").collection("posts");
-      const res = await posts.findOne({_id:ObjectId(id)});
+      const res = await posts.findOne({ _id: ObjectId(id) });
       return res;
     } finally {
       console.log("AlignCareer: Closing db connection");
@@ -102,7 +116,10 @@ function MyDB() {
     try {
       client = new MongoClient(mongoURL);
       const diaries = client.db("AlignCareer").collection("diaries");
-      const res = await diaries.update({_id:ObjectId(id)}, {$set:{content:entry.content}});
+      const res = await diaries.update(
+        { _id: ObjectId(id) },
+        { $set: { content: entry.content } }
+      );
       return res;
     } finally {
       console.log("AlignCareer: Closing db connection");
@@ -114,7 +131,7 @@ function MyDB() {
     try {
       client = new MongoClient(mongoURL);
       const diaries = client.db("AlignCareer").collection("diaries");
-      const res = await diaries.deleteOne({_id:ObjectId(id)});
+      const res = await diaries.deleteOne({ _id: ObjectId(id) });
       return res;
     } finally {
       console.log("AlignCareer: Closing db connection");

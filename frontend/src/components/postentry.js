@@ -5,7 +5,10 @@ export default function Postentry(props) {
     window.location.replace("post?id=" + props.id);
   }
   return (
-    <a onClick={handleClick} class="list-group-item list-group-item-action flex-column align-items-start">
+    <a
+      onClick={handleClick}
+      class="list-group-item list-group-item-action flex-column align-items-start"
+    >
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">{props.title}</h5>
       </div>

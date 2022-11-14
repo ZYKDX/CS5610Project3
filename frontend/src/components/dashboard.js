@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Postentry from "./postentry";
 import Header from "./header";
 
-
 export default function Dashboard(props) {
   const [list, setList] = useState([]);
 
@@ -30,18 +29,19 @@ export default function Dashboard(props) {
 
   return (
     <div>
-    <Header></Header>
-    <div class="container">
+      <Header></Header>
+      <div class="container">
         <div class="mt-4 mb-4 d-flex justify-content-between">
           <div class="h1">Welcome to NEU Align Career!</div>
           <div>
-          <button
-            class="btn btn-primary me-md-2 justify-content-md-end"
-            id="newpost"
-            type="button"
-            onClick={handleClickShare}>
-            Share my experience
-          </button>
+            <button
+              class="btn btn-primary me-md-2 justify-content-md-end"
+              id="newpost"
+              type="button"
+              onClick={handleClickShare}
+            >
+              Share my experience
+            </button>
           </div>
         </div>
         <div id="content"></div>
@@ -55,7 +55,7 @@ export default function Dashboard(props) {
             />
           ))}
         </div>
-    </div>
+      </div>
     </div>
   );
 }

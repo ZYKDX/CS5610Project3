@@ -19,16 +19,16 @@ export default function App() {
 
   return (
     <BrowserRouter>
-        <Routes>
-          <Route path="/" exact element={<Homepage user={user} />} />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/addpost" element={<Addpost />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/editprofile" element={<EditProfile />} />
-          <Route path="/post" element={<Post />} />
-          <Route path="/newpost" element={<NewPost />} />
-        </Routes>
+      <Routes>
+        <Route path="/" exact element={<Homepage user={user} />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/addpost" element={<Addpost />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/editprofile" element={<EditProfile />} />
+        <Route path="/post" element={<Post />} />
+        <Route path="/newpost" element={<NewPost />} />
+      </Routes>
     </BrowserRouter>
   );
 }
