@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState,useEffect } from "react";
 import Header from "./header";
 
 export default function Profile() {
@@ -10,7 +10,7 @@ export default function Profile() {
     location: "",
     offers: "",
     skills: "",
-  });
+   });
 
   useEffect(() => {
     getUser().then((profile) => {
@@ -33,47 +33,43 @@ export default function Profile() {
 
   return (
     <div>
-      <Header user="test"></Header>
-      <div class="container-md">
+    <Header user="test"></Header>
+    <div class="container-md">
         <div class="h1">About me</div>
         <table class="table table-default">
-          <tbody>
-            <tr>
-              <th>User Name</th>
-              <td>{profile.user}</td>
-            </tr>
-            <tr>
-              <th>Email</th>
-              <td>{profile.email}</td>
-            </tr>
-            <tr>
-              <th>Program</th>
-              <td>{profile.program}</td>
-            </tr>
-            <tr>
-              <th>Location</th>
-              <td>{profile.location}</td>
-            </tr>
-            <tr>
-              <th>Offers</th>
-              <td>{profile.offers}</td>
-            </tr>
-            <tr>
-              <th>Skills</th>
-              <td>{profile.skills}</td>
-            </tr>
-          </tbody>
+        <tbody>
+          <tr>
+            <th>User Name</th>
+            <td>{profile.user}</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>{profile.email}</td>
+          </tr>
+          <tr>
+            <th>Program</th>
+            <td>{profile.program}</td>
+          </tr>
+          <tr>
+            <th>Location</th>
+            <td>{profile.location}</td>
+          </tr>
+          <tr>
+            <th>Offers</th>
+            <td>{profile.offers}</td>
+          </tr>
+          <tr>
+            <th>Skills</th>
+            <td>{profile.skills}</td>
+          </tr>
+        </tbody>
         </table>
         <div class="d-flex justify-content-center">
-          <button
-            type="button"
-            class="btn btn-primary mx-5"
-            onClick={handleEdit}
-          >
+          <button type="button" class="btn btn-primary mx-5" onClick={handleEdit}>
             Edit
           </button>
         </div>
-      </div>
+    </div>
     </div>
   );
 }
@@ -90,6 +86,5 @@ async function getUser() {
   }
   const res = await fetch("./getUser");
   const profile = await res.json();
-  console.log(profile);
   return profile;
 }

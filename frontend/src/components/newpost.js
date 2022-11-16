@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "./header";
 
 export default function Newpost() {
+  const [message, setMessage] = useState("");
   const [values, setValues] = useState({
     title: "",
     content: "",
@@ -29,7 +30,9 @@ export default function Newpost() {
       body: JSON.stringify(data),
     });
     if (res.status === 200) {
-      window.location.href = "/";
+      const json = await res.json();
+      setMessage(json.msg);
+      setTimeout(() => window.location.replace("/"), 2000);
     }
   }
 
@@ -39,19 +42,6 @@ export default function Newpost() {
       <div class="container">
         <div class="mt-4 mb-4 d-flex justify-content-between">
           <div class="h1">Post a new experience</div>
-        </div>
-        <div
-          class="alert alert-warning alert-dismissible fade show"
-          role="alert"
-          id="msg"
-        >
-          <span id="msgContent"></span>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
         </div>
         <form onSubmit={onSubmit}>
           <div class="mb-3">

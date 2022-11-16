@@ -4,6 +4,7 @@ import Header from "./header";
 
 export default function Post() {
   const [user, setUser] = useState();
+  const [message, setMessage] = useState("");
   const [post, setPost] = useState({
     title: "",
     content: "",
@@ -26,10 +27,34 @@ export default function Post() {
     });
   }, []);
 
+  async function handleDelete(e) {
+    e.preventDefault();
+    const p = new URLSearchParams(window.location.search);
+    const res = await fetch("/deletePost?id=" + p.get("id"));
+    const json = await res.json();
+    setMessage(json.msg);
+    setTimeout(() => window.location.replace("/"), 2000);
+  }
+
   return (
-    <div>
+    <div class="container-md">
       <Header></Header>
-      <div class="container-md">
+      {message !== "" && (
+        <div
+          class="alert alert-warning alert-dismissible fade show"
+          role="alert"
+          id="msg"
+        >
+          <span id="msgContent">{message}</span>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+      )}
+      <div>
         <h1 id="title" class="text-center mb-4">
           {post.title}
         </h1>
@@ -42,7 +67,7 @@ export default function Post() {
               <button id="edit" type="button" class="btn btn-primary mx-5">
                 Edit
               </button>
-              <button id="delete" type="button" class="btn btn-danger mx-5">
+              <button id="delete" type="button" class="btn btn-danger mx-5" onClick={handleDelete}>
                 Delete
               </button>
             </div>
