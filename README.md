@@ -48,4 +48,4 @@ Open a new terminal session, run npm start at frontend directory
 ### Release
 
 ### Design doc
-[Online Career Development Forum Design Doc] https://github.com/anonymousmiaow/cs5610p2/blob/53b8d4382a72c7a200e7232d8a88ff4eae8f42d4/Design%20Doc.pdf
+[Online Career Development Forum Design Doc] https://github.com/ZYKDX/CS5610Project3/blob/main/Design%20Doc.pdf
