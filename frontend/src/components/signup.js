@@ -119,7 +119,7 @@ export default function Signup() {
 
         <div class="text-center">
           <p>
-            Not a member? <a href="./signup.html">Register</a>
+            Already have an account? <a href="./signin.html">Log In</a>
           </p>
         </div>
       </form>
