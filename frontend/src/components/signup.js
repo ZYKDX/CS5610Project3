@@ -114,7 +114,7 @@ export default function Signup() {
         </div>
 
         <button type="submit" class="btn btn-primary btn-block mb-4">
-          Sign in
+          Sign Up
         </button>
 
         <div class="text-center">
