@@ -126,12 +126,12 @@ function MyDB() {
       client.close();
     }
   };
-  myDB.deleteDiary = async function (id = "") {
+  myDB.deletePost = async function (id = "") {
     let client;
     try {
       client = new MongoClient(mongoURL);
-      const diaries = client.db("AlignCareer").collection("diaries");
-      const res = await diaries.deleteOne({ _id: ObjectId(id) });
+      const posts = client.db("AlignCareer").collection("posts");
+      const res = await posts.deleteOne({ _id: ObjectId(id) });
       return res;
     } finally {
       console.log("AlignCareer: Closing db connection");
