@@ -67,7 +67,12 @@ export default function Post() {
               <button id="edit" type="button" class="btn btn-primary mx-5">
                 Edit
               </button>
-              <button id="delete" type="button" class="btn btn-danger mx-5" onClick={handleDelete}>
+              <button
+                id="delete"
+                type="button"
+                class="btn btn-danger mx-5"
+                onClick={handleDelete}
+              >
                 Delete
               </button>
             </div>

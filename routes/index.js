@@ -33,7 +33,7 @@ router.post("/signup", async (req, res) => {
   // Save user to db
   const user = req.body;
   const success = await myDB.createUser(user);
-  if(!success) {
+  if (!success) {
     res.json({ isLoggedIn: false, err: "User alreay exists" });
     return;
   }
@@ -42,45 +42,45 @@ router.post("/signup", async (req, res) => {
 });
 
 router.get("/getUser", async (req, res) => {
-    console.log("getUser");
-    console.log(req);
-    const user = await myDB.getUser(req.session.user);
-    res.json(user);
+  console.log("getUser");
+  console.log(req);
+  const user = await myDB.getUser(req.session.user);
+  res.json(user);
 });
 
 router.post("/updateProfile", async (req, res) => {
   console.log(req.body);
   const diary = await myDB.updateProfile(req.session.user, req.body);
-  res.json({msg: "Profile updated" });
+  res.json({ msg: "Profile updated" });
 });
 
 router.get("/listPosts", async (req, res) => {
-    const posts = await myDB.listPosts();
-    res.json(posts);
+  const posts = await myDB.listPosts();
+  res.json(posts);
 });
 
 router.post("/createPost", async (req, res) => {
-    console.log(req.body);
-    await myDB.createPost(req.body, req.session.user);
-    res.json({msg: "Post saved" });
+  console.log(req.body);
+  await myDB.createPost(req.body, req.session.user);
+  res.json({ msg: "Post saved" });
 });
 
 router.post("/editDiary", async (req, res) => {
-    console.log("updateDiary");
-    const diary = await myDB.editDiary(req.query.id, req.body);
-    res.json({msg: "Diary updated" });
+  console.log("updateDiary");
+  const diary = await myDB.editDiary(req.query.id, req.body);
+  res.json({ msg: "Diary updated" });
 });
 
 router.get("/deletePost", async (req, res) => {
-    console.log(req.query.id);
-    const post = await myDB.deletePost(req.query.id);
-    res.json({msg: "Post deleted" });
+  console.log(req.query.id);
+  const post = await myDB.deletePost(req.query.id);
+  res.json({ msg: "Post deleted" });
 });
 
 router.get("/getPost", async (req, res) => {
-    console.log(req.query.id);
-    const post = await myDB.getPost(req.query.id);
-    res.json(post);
+  console.log(req.query.id);
+  const post = await myDB.getPost(req.query.id);
+  res.json(post);
 });
 
 export default router;
