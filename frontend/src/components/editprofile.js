@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Header from "./header";
 
 export default function EditProfile() {
   const [profile, setProfile] = useState({
@@ -56,23 +57,7 @@ export default function EditProfile() {
 
   return (
     <div class="container-md">
-      <ul class="nav justify-content-end">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="./index.html">
-            Home
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="navUsername" aria-current="page" href="./">
-            Welcome
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="linkLogout" href="/logout">
-            Log Out
-          </a>
-        </li>
-      </ul>
+      <Header></Header>
       <div class="h1">Edit Profile</div>
       <form method="post" onSubmit={onSubmit}>
         <div class="mb-3">

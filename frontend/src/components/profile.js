@@ -33,7 +33,7 @@ export default function Profile() {
 
   return (
     <div>
-      <Header user="test"></Header>
+      <Header></Header>
       <div class="container-md">
         <div class="h1">About me</div>
         <table class="table table-default">
