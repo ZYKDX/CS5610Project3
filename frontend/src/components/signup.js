@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 
 /* This is the Signup component that enables user to sign up. */
 export default function Signup() {

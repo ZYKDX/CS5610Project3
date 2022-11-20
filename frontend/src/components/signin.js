@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 
 /* This is the Signin component that enables user to sign in. */
 export default function Signin() {
