@@ -19,10 +19,10 @@ export default function Signup() {
     };
     
     if(data.email.endsWith("northeastern.edu"))
-      {};
+      {}
     else{
       alert("invalid email address");
-    };
+    }
     
     const res = await fetch("./signup", {
       method: "POST",
