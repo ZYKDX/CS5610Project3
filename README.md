@@ -4,7 +4,7 @@
 
 # https://cs5610p2-mydiary.herokuapp.com/
 
-#### [Online Career Development Forum](https://cs5610p2-mydiary.herokuapp.com/)
+#### [Online Career Development Forum](https://cs5610p3-Career.herokuapp.com/)
 
 ### Author
 
@@ -33,7 +33,7 @@ React
 ### How to install/use locally
 
 Use the website deployed here:<br />
-The Online Career Development Forum Deployed in Heroku https://cs5610p2-mydiary.herokuapp.com/ <br />
+The Online Career Development Forum Deployed in Heroku https://cs5610p3-career.herokuapp.com/ <br />
 
 or<br />
 
