@@ -3,55 +3,43 @@ import { useState, useEffect } from "react";
 import Header from "./header";
 
 export default function EditProfile() {
-  const [profile, setProfile] = useState({
-    user: "",
-    email: "",
-    program: "",
-    location: "",
-    offers: "",
-    skills: "",
-  });
+    const [values, setValues] = useState({
+        title: "",
+        content: "",
+      });
 
   useEffect(() => {
-    getUser().then((profile) => {
-      setProfile({
-        user: profile.user,
-        email: profile.email,
-        program: profile.program,
-        location: profile.location,
-        offers: profile.offers,
-        skills: profile.skills,
+    getUser().then((values) => {
+      setValues({
+        title: values.title,
+        content: values.content
       });
     });
   }, []);
 
   function handleChange(evt) {
     const value = evt.target.value;
-    setProfile({
-      ...profile,
+    setValues({
+      ...values,
       [evt.target.name]: value,
     });
-    console.log(profile);
+    console.log(values);
   }
 
   async function onSubmit(evt) {
     console.log("onsubmit");
     evt.preventDefault();
     const data = {
-      user: profile.user,
-      email: profile.email,
-      program: profile.program,
-      location: profile.location,
-      offers: profile.offers,
-      skills: profile.skills,
+        title: values.title,
+        content: values.content
     };
-    const res = await fetch("./updateProfile", {
+    const res = await fetch("./updatePost", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
     if (res.status === 200) {
-      setTimeout(() => (window.location.href = "/profile"), 2000);
+      setTimeout(() => (window.location.href = "/post"), 2000);
     }
   }
 

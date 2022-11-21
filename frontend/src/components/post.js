@@ -9,15 +9,18 @@ export default function Post() {
     title: "",
     content: "",
     author: "",
+    writeEmail:""
   });
   const [email, setEmail] = useState("@northeastern.edu");
 
   useEffect(() => {
     getPost().then((post) => {
+      console.log("post",post)
       setPost({
         title: post.title,
         content: post.content,
         author: post.author,
+        writerEmail: post.writerEmail
       });
     });
   }, []);
@@ -84,9 +87,7 @@ export default function Post() {
           ) : (
             <details>
               <summary>Contact Author</summary>
-              {"Author:"+post.author}
-              <br></br>
-              {"Email:"+post.author+"@northeastern.edu"}
+              {"Author:"+post.author+" Email:"+post.writerEmail}
             </details>
           )}
         </div>
@@ -102,7 +103,7 @@ async function getPost() {
   return post;
 }
 
-// 
+// don't call another api to get author
 async function getEmail(author){
   const res = await fetch("./getEmail?id=" + author);
   const post = await res.json();

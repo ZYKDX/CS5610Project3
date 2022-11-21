@@ -13,8 +13,9 @@ function MyDB() {
       if (success) {
         return false;
       }
-      await users.insertOne(user);
-      return true;
+    let new_user =  await users.insertOne(user);
+    let response =  await users.findOne({_id:new_user.insertedId})
+      return {success:true, user_details:response};
     } finally {
       console.log('AlignCareer: Closing db connection');
       client.close();
@@ -84,10 +85,14 @@ function MyDB() {
       client = new MongoClient(mongoURL);
       const users = client.db('AlignCareer').collection('users');
       const userInDb = await users.findOne({user: user.user});
+      console.log("first")
       if (!userInDb) {
         return false;
       }
-      return userInDb.password == user.password;
+      if(userInDb.password == user.password){
+
+        return {success:true,user_details:userInDb}
+      }
     } finally {
       console.log('AlignCareer: Closing db connection');
       client.close();
@@ -102,6 +107,7 @@ function MyDB() {
         author: user.user,
         title: entry.title,
         content: entry.content,
+        writerEmail: entry.writerEmail
       });
       return res;
     } finally {

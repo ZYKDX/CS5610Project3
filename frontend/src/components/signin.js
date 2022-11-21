@@ -23,16 +23,20 @@ export default function Signin() {
       user: values.username,
       password: values.password,
     };
-    console.log(data);
+    // console.log(data);
     const res = await fetch("./authenticate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
     const resUser = await res.json();
+    // console.log("resUser",resUser)
+    //when writer will write the post then we will attach email to save in backend
+    localStorage.setItem("loggedInEmail",resUser.user_details.email) 
     if (resUser.isLoggedIn) {
       window.location.href = "/";
     } else {
+      alert("hello");
       setSigninError(resUser.err);
     }
   }

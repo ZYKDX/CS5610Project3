@@ -18,7 +18,7 @@ export default function Signup() {
       email: values.email,
     };
     
-    if(data.email === data.user+"@northeastern.edu")
+    if(data.email.endsWith("northeastern.edu"))
       {}
     else{
       alert("invalid email address");
@@ -30,9 +30,11 @@ export default function Signup() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
-    console.log(res);
+    // console.log(res);
     const resUser = await res.json();
     if (resUser.isLoggedIn) {
+      let loggedInEmail = resUser.user_details.email
+      localStorage.setItem("loggedInEmail",loggedInEmail)
       window.location.href = "/";
     } else {
       // TODO: handle signup failure.
@@ -76,7 +78,7 @@ export default function Signup() {
             }}
           />
           <label class="form-label" for="form2Example1">
-            User ID : same as your NEU email username
+            User ID
           </label>
         </div>
 
@@ -118,7 +120,7 @@ export default function Signup() {
             }}
           />
           <label class="form-label" for="form2Example3">
-            NEU Email Address
+            NEU Email Address (This site is currently open to NEU students only)
           </label>
         </div>
 

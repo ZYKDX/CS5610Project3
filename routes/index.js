@@ -15,9 +15,9 @@ router.post('/authenticate', async (req, res) => {
   // TODO: validate that the user data is correct
   const user = req.body;
   const success = await myDB.authenticate(user);
-  if (success) {
+  if (success.success) {
     req.session.user = {user: user.user};
-    res.json({isLoggedIn: true, err: null});
+    res.json({isLoggedIn: true, err: null,user_details:success.user_details});
   } else {
     req.session.user = null;
     res.json({isLoggedIn: false, err: 'Wrong User or Password'});
@@ -38,7 +38,7 @@ router.post('/signup', async (req, res) => {
     return;
   }
   req.session.user = {user: user.user};
-  res.json({isLoggedIn: true, err: null});
+  res.json({isLoggedIn: true, err: null,user_details:success.user_details});
 });
 
 router.get('/getUser', async (req, res) => {
@@ -56,6 +56,7 @@ router.post('/updateProfile', async (req, res) => {
 
 router.post('/updatePost', async (req, res) => {
   console.log(req.body);
+  //
   const diary = await myDB.updatePost(req.session.user, req.body);
   res.json({msg: 'Post updated'});
 });
