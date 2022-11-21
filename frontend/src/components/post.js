@@ -10,6 +10,7 @@ export default function Post() {
     content: "",
     author: "",
   });
+  const [email, setEmail] = useState("@northeastern.edu");
 
   useEffect(() => {
     getPost().then((post) => {
@@ -24,6 +25,13 @@ export default function Post() {
   useEffect(() => {
     getUsername().then((username) => {
       setUser(username);
+    });
+  }, []);
+
+  // 
+  useEffect(() => {
+    getEmail().then((email) => {
+      setEmail(email);
     });
   }, []);
 
@@ -64,9 +72,6 @@ export default function Post() {
         <div class="d-flex justify-content-center">
           {post.author === user ? (
             <div>
-              <button id="edit" type="button" class="btn btn-primary mx-5">
-                Edit
-              </button>
               <button
                 id="delete"
                 type="button"
@@ -77,9 +82,12 @@ export default function Post() {
               </button>
             </div>
           ) : (
-            <button id="author" type="button" class="btn btn-primary mx-5">
-              Contact Author
-            </button>
+            <details>
+              <summary>Contact Author</summary>
+              {"Author:"+post.author}
+              <br></br>
+              {"Email:"+post.author+"@northeastern.edu"}
+            </details>
           )}
         </div>
       </div>
@@ -90,6 +98,13 @@ export default function Post() {
 async function getPost() {
   const p = new URLSearchParams(window.location.search);
   const res = await fetch("./getPost?id=" + p.get("id"));
+  const post = await res.json();
+  return post;
+}
+
+// 
+async function getEmail(author){
+  const res = await fetch("./getEmail?id=" + author);
   const post = await res.json();
   return post;
 }

@@ -18,11 +18,12 @@ export default function Signup() {
       email: values.email,
     };
     
-    if(data.email.endsWith("northeastern.edu"))
-      {};
+    if(data.email === data.user+"@northeastern.edu")
+      {}
     else{
       alert("invalid email address");
-    };
+      return;
+    }
     
     const res = await fetch("./signup", {
       method: "POST",
@@ -75,7 +76,7 @@ export default function Signup() {
             }}
           />
           <label class="form-label" for="form2Example1">
-            User ID
+            User ID : same as your NEU email username
           </label>
         </div>
 
@@ -117,7 +118,7 @@ export default function Signup() {
             }}
           />
           <label class="form-label" for="form2Example3">
-            NEU Email Address (This site is currently open to NEU students only)
+            NEU Email Address
           </label>
         </div>
 
