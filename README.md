@@ -22,8 +22,7 @@ was ineffective and information less useful. This is mainly due to the large dif
 example, as an MSCS student, after I read an interview experience that was rated as ‘easy’ but found that the author <br/>
 is a developer with many years of work experience, the reference value of this post will then become very low immediately.<br/>
 Considering this, we plan to build a community site for NEU students and help users communicate with others from a similar <br/>
-background. From our perspective, this site will be particularly useful in career development since alumni can communicate<br/>
-smoothly here.![image](https://user-images.githubusercontent.com/101040143/203008389-673e0243-5798-47ca-a7cc-9566778fb5cc.png)
+background. From our perspective, this site will be particularly useful in career development since alumni can communicate smoothly here.!<br/>
 
 
 ### Tech Requirements
