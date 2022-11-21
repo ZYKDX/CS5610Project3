@@ -2,9 +2,9 @@
 
 # Online career development forum for NEU Khoury students
 
-# https://cs5610p2-mydiary.herokuapp.com/
+# https://cs5610p3-career.herokuapp.com/
 
-#### [Online Career Development Forum](https://cs5610p2-mydiary.herokuapp.com/)
+#### [Online Career Development Forum](https://cs5610p3-career.herokuapp.com/)
 
 ### Author
 
@@ -16,11 +16,15 @@ Susie Xu, Yukun Zhou
 
 ### Project Objective
 
-Landing a job (or an internship) is a big topic for Computer Science students. However, after using a lot of online career development forums, we find that the information was very ineffective and thus of limited help.<br />
-This is mainly due to the large difference in background among users, for example, as an align student, after I read an interview experience that was rated as ‘easy’ but found that the author is a developer with many years of work experience,
-the reference value of this rating will then become very low immediately. Considering this, we plan to build a career development site for NEU students and help users land an internship or new grad position.<br />
-We will make sure that our users are NEU students by verifying @northeastern.com email addresses when users register for accounts.<br />
-In our forum, users can post their job-hunting experiences, publish job-hunting information, and share their interview experience. A user could post new experience, and read experiences shared by other users. When user A is interested in user B’s sharing, A could easily see B’s information by clicking ‘contact author’ button and discuss more details with B.
+Online communication has long been a lifestyle for young generation, especially during this pandemic era. <br/>
+However, after using a lot of online forums, we find that user backgrounds were often diverse, thus communication<br/>
+was ineffective and information less useful. This is mainly due to the large difference in background among users, for<br/>
+example, as an MSCS student, after I read an interview experience that was rated as ‘easy’ but found that the author <br/>
+is a developer with many years of work experience, the reference value of this post will then become very low immediately.<br/>
+Considering this, we plan to build a community site for NEU students and help users communicate with others from a similar <br/>
+background. From our perspective, this site will be particularly useful in career development since alumni can communicate<br/>
+smoothly here.![image](https://user-images.githubusercontent.com/101040143/203008389-673e0243-5798-47ca-a7cc-9566778fb5cc.png)
+
 
 ### Tech Requirements
 
@@ -33,7 +37,7 @@ React
 ### How to install/use locally
 
 Use the website deployed here:<br />
-The Online Career Development Forum Deployed in Heroku https://cs5610p2-mydiary.herokuapp.com/ <br />
+The Online Career Development Forum Deployed in Heroku https://cs5610p3-career.herokuapp.com/ <br />
 
 or<br />
 
