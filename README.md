@@ -2,7 +2,7 @@
 
 # Online career development forum for NEU Khoury students
 
-# https://cs5610p2-mydiary.herokuapp.com/
+# https://cs5610p3-career.herokuapp.com/
 
 #### [Online Career Development Forum](https://cs5610p3-Career.herokuapp.com/)
 
