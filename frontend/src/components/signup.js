@@ -22,6 +22,7 @@ export default function Signup() {
       {}
     else{
       alert("invalid email address");
+      return;
     }
     
     const res = await fetch("./signup", {
