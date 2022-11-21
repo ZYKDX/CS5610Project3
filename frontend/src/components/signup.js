@@ -17,6 +17,13 @@ export default function Signup() {
       password: values.password,
       email: values.email,
     };
+    
+    if(data.email.endsWith("northeastern.edu))
+      {};
+    else{
+      alert("invalid email address");
+    };
+    
     const res = await fetch("./signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -29,6 +36,8 @@ export default function Signup() {
     } else {
       // TODO: handle signup failure.
       //showMessage(resUser.err);
+      alert("Sign up failed: please change your username/password");
+      return;
     }
   }
 
