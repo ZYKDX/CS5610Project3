@@ -87,7 +87,9 @@ export default function Post() {
           ) : (
             <details>
               <summary>Contact Author</summary>
-              {"Author:"+post.author+" Email:"+post.writerEmail}
+              {"Author:"+post.author}
+              <br/>
+              {"Email:"+post.writerEmail}
             </details>
           )}
         </div>

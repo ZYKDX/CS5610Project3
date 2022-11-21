@@ -32,7 +32,7 @@ export default function Dashboard(props) {
       <Header></Header>
       <div class="container">
         <div class="mt-4 mb-4 d-flex justify-content-between">
-          <div class="h1">Welcome to NEU Align Career!</div>
+          <div class="h1">Welcome to NEU Community!</div>
           <div>
             <button
               class="btn btn-primary me-md-2 justify-content-md-end"

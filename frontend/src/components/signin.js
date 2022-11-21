@@ -58,7 +58,7 @@ export default function Signin() {
           ></button>
         </div>
       )}
-      <h1 class="text-center">Welcome to NEU Align Career!</h1>
+      <h1 class="text-center">Welcome to NEU Community!</h1>
       <form id="login" method="post" onSubmit={onSubmit}>
         <div class="form-outline mb-4">
           <input
