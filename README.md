@@ -18,8 +18,8 @@ Susie Xu, Yukun Zhou
 
 Online communication has long been a lifestyle for young generation, especially during this pandemic era. <br/>
 However, after using a lot of online forums, we find that user backgrounds were often diverse, thus communication<br/>
-was ineffective and information less useful. This is mainly due to the large difference in background among users, for<br/>
-example, as an MSCS student, after I read an interview experience that was rated as ‘easy’ but found that the author <br/>
+was ineffective and information less useful. This is mainly due to the large difference in background among users,<br/> 
+for example, as an MSCS student, after I read an interview experience that was rated as ‘easy’ but found that the author <br/>
 is a developer with many years of work experience, the reference value of this post will then become very low immediately.<br/>
 Considering this, we plan to build a community site for NEU students and help users communicate with others from a similar <br/>
 background. From our perspective, this site will be particularly useful in career development since alumni can communicate smoothly here.!<br/>
