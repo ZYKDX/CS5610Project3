@@ -1,10 +1,10 @@
 # CS5610 Web Dev, Project 3
 
-# Online career development forum for NEU Khoury students
+# Online community for NEU students
 
 # https://cs5610p3-career.herokuapp.com/
 
-#### [Online Career Development Forum](https://cs5610p3-career.herokuapp.com/)
+#### [Online NEU community](https://cs5610p3-career.herokuapp.com/)
 
 ### Author
 
