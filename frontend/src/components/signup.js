@@ -18,7 +18,7 @@ export default function Signup() {
       email: values.email,
     };
     
-    if(data.email.endsWith("northeastern.edu))
+    if(data.email.endsWith("northeastern.edu"))
       {};
     else{
       alert("invalid email address");
