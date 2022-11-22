@@ -1,4 +1,4 @@
-# CS5610 Web Dev, Project 3
+# CS5610 Web Dev, Project 3 - Aiming for the bonus points
 
 # Online community for NEU students
 
