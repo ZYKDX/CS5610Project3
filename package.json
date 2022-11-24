@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node ./node_modules/nodemon/bin/nodemon.js ./bin/www.js",
-    "heroku-postbuild": "cd frontend && npm install && npm start",
+    "heroku-postbuild": "cd client && npm install && npm run build"
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Shu Xu, Yukun Zhou",
