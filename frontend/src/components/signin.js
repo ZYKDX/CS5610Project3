@@ -32,7 +32,7 @@ export default function Signin() {
     const resUser = await res.json();
     // console.log("resUser",resUser)
     //when writer will write the post then we will attach email to save in backend
-    localStorage.setItem("loggedInEmail",resUser.user_details.email) 
+    localStorage.setItem("loggedInEmail", resUser.user_details.email);
     if (resUser.isLoggedIn) {
       window.location.href = "/";
     } else {

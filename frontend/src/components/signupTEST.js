@@ -33,10 +33,9 @@ export default function Signup() {
       var re = /^([A-Za-z0-9]*[-_]?[A-Za-z0-9]+)*@northeastern.edu$/;
       // TODO: handle signup failure.
       //showMessage(resUser.err);
-      if(re.test(data.email)){
+      if (re.test(data.email)) {
         alert("invlid name or password");
-      }
-      else{
+      } else {
         alert("invalid email address");
       }
     }

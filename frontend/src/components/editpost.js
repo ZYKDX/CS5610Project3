@@ -3,16 +3,16 @@ import { useState, useEffect } from "react";
 import Header from "./header";
 
 export default function EditProfile() {
-    const [values, setValues] = useState({
-        title: "",
-        content: "",
-      });
+  const [values, setValues] = useState({
+    title: "",
+    content: "",
+  });
 
   useEffect(() => {
     getUser().then((values) => {
       setValues({
         title: values.title,
-        content: values.content
+        content: values.content,
       });
     });
   }, []);
@@ -30,8 +30,8 @@ export default function EditProfile() {
     console.log("onsubmit");
     evt.preventDefault();
     const data = {
-        title: values.title,
-        content: values.content
+      title: values.title,
+      content: values.content,
     };
     const res = await fetch("./updatePost", {
       method: "POST",

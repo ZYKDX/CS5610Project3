@@ -23,7 +23,7 @@ export default function Newpost() {
     const data = {
       title: values.title,
       content: values.content,
-      writerEmail:localStorage.getItem("loggedInEmail") // added this line
+      writerEmail: localStorage.getItem("loggedInEmail"), // added this line
     };
     const res = await fetch("./createPost", {
       method: "POST",

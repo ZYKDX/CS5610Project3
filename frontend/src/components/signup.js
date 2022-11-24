@@ -17,15 +17,14 @@ export default function Signup() {
       password: values.password,
       email: values.email,
     };
-    
-    if(data.email.endsWith("northeastern.edu"))
-      {}
-    else{
+
+    if (data.email.endsWith("northeastern.edu")) {
+    } else {
       alert("invalid email address");
       return;
     }
-    
-    const res = await fetch("./signup", {
+
+    const res = await fetch("./api/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -33,8 +32,8 @@ export default function Signup() {
     // console.log(res);
     const resUser = await res.json();
     if (resUser.isLoggedIn) {
-      let loggedInEmail = resUser.user_details.email
-      localStorage.setItem("loggedInEmail",loggedInEmail)
+      let loggedInEmail = resUser.user_details.email;
+      localStorage.setItem("loggedInEmail", loggedInEmail);
       window.location.href = "/";
     } else {
       // TODO: handle signup failure.

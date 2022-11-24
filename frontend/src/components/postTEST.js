@@ -36,19 +36,17 @@ export default function Post() {
     setTimeout(() => window.location.replace("/"), 2000);
   }
 
-  function handleEdit(evt)
-  {
+  function handleEdit(evt) {
     handleChange(evt);
   }
-  function handleChange(evt)
-  {
+  function handleChange(evt) {
     const value = evt.target.value;
     setPost({
       ...post,
       [evt.target.name]: value,
     });
-      console.log(post);
-  } 
+    console.log(post);
+  }
 
   return (
     <div class="container-md">
@@ -78,11 +76,11 @@ export default function Post() {
         <div class="d-flex justify-content-center">
           {post.author === user ? (
             <div>
-              <button 
-                id="edit" 
-                type="button" 
+              <button
+                id="edit"
+                type="button"
                 class="btn btn-primary mx-5"
-                onClick={handleEdit} 
+                onClick={handleEdit}
               >
                 Edit
               </button>
@@ -96,7 +94,6 @@ export default function Post() {
               </button>
             </div>
           ) : (
-            
             // how to get the author's email here?
             <details>
               <summary>Contact Author</summary>

@@ -14,7 +14,7 @@ export default function Header(props) {
     const res = await fetch("/logout");
     const resLogout = await res.json();
     setMessage(resLogout.msg);
-    setTimeout(() => window.location.href = "/signin", 2000);
+    setTimeout(() => (window.location.href = "/signin"), 2000);
   }
 
   return (
