@@ -5,10 +5,23 @@ import Header from "./header";
 
 export default function Dashboard(props) {
   const [list, setList] = useState([]);
+  const [page, setPage] = useState(parseInt(new URLSearchParams(window.location.search).get("p") || "1"));
+  const [disablePrevious, setDisablePrevious] = useState(true);
+  const [disableNext, setDisableNext] = useState(true);
 
   useEffect(() => {
-    const p = new URLSearchParams(window.location.search);
-    fetch("/listPosts?p="+ (p.get("p") || "1"), {
+    if (page != 1) {
+      setDisablePrevious(false);
+    }
+    if (list.length == 10) {
+      console.log("set next to false");
+      setDisableNext(false);
+    }
+
+  }, [page, list]);
+
+  useEffect(() => {
+    fetch("/listPosts?p="+ page, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +33,7 @@ export default function Dashboard(props) {
       .then((res) => {
         setList(res);
       });
-  }, []);
+  }, [page]);
 
   function handleClickShare(e) {
     e.preventDefault();
@@ -55,6 +68,16 @@ export default function Dashboard(props) {
               content={i.content}
             />
           ))}
+        </div>
+        <div class="d-flex justify-content-between mt-5">
+          <button type="button" class="btn btn-outline-secondary" disabled={disablePrevious} onClick={()=>{
+            console.log("clicked");
+            window.location.href = "?p=" + (page-1);
+          }}>Previous</button>
+          <button type="button" class="btn btn-outline-secondary" disabled={disableNext} onClick={()=>{
+            console.log("clicked next");
+            window.location.href = "?p=" + (page+1);
+          }}>Next</button>
         </div>
       </div>
     </div>
