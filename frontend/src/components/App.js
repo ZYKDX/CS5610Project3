@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signin from "./signin";
 import Signup from "./signup";
 import Homepage from "./homepage";
-import Addpost from "./addpost";
 import Profile from "./profile";
 import EditProfile from "./editprofile";
 import Post from "./post";
@@ -23,7 +22,6 @@ export default function App() {
         <Route path="/" exact element={<Homepage user={user} />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/addpost" element={<Addpost />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/editprofile" element={<EditProfile />} />
         <Route path="/post" element={<Post />} />
