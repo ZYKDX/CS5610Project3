@@ -12,10 +12,10 @@ export default function Dashboard(props) {
   const [disableNext, setDisableNext] = useState(true);
 
   useEffect(() => {
-    if (page != 1) {
+    if (page !== 1) {
       setDisablePrevious(false);
     }
-    if (list.length == 10) {
+    if (list.length === 10) {
       console.log("set next to false");
       setDisableNext(false);
     }

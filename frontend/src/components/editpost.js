@@ -101,20 +101,4 @@ async function getPost() {
   return post;
 }
 
-async function getUser() {
-  const cur = await fetch("/getCurrentUser");
-  if (cur.status !== 200) {
-    return;
-  }
-  const loggedin = await cur.json();
-  if (!loggedin.isLoggedIn) {
-    window.location.href = "/";
-    return;
-  }
-  const res = await fetch("./getUser");
-  const profile = await res.json();
-  console.log(profile);
-  return profile;
-}
-
 EditPost.propTypes = {};

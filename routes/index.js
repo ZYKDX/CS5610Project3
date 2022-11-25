@@ -54,7 +54,7 @@ router.get("/getUser", async (req, res) => {
 
 router.post("/updateProfile", async (req, res) => {
   console.log(req.body);
-  const diary = await myDB.updateProfile(req.session.user, req.body);
+  await myDB.updateProfile(req.session.user, req.body);
   res.json({ msg: "Profile updated" });
 });
 
@@ -76,7 +76,7 @@ router.post("/updatePost", async (req, res) => {
 
 router.get("/deletePost", async (req, res) => {
   console.log(req.query.id);
-  const post = await myDB.deletePost(req.query.id);
+  await myDB.deletePost(req.query.id);
   res.json({ msg: "Post deleted" });
 });
 
