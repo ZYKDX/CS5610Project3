@@ -84,12 +84,10 @@ function MyDB() {
       const users = client.db("AlignCareer").collection("users");
       const userInDb = await users.findOne({ user: user.user });
       console.log("first");
-      if (!userInDb) {
-        return false;
+      if (!userInDb || userInDb.password != user.password) {
+        return { success: false, user_details: {}};
       }
-      if (userInDb.password == user.password) {
-        return { success: true, user_details: userInDb };
-      }
+      return { success: true, user_details: userInDb };
     } finally {
       console.log("AlignCareer: Closing db connection");
       client.close();
