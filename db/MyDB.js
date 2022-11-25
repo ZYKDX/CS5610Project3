@@ -110,12 +110,12 @@ function MyDB() {
       client.close();
     }
   };
-  myDB.listPosts = async function() {
+  myDB.listPosts = async function(page = 1) {
     let client;
     try {
       client = new MongoClient(mongoURL);
       const posts = client.db("AlignCareer").collection("posts");
-      const res = await posts.find().toArray();
+      const res = await posts.find().skip((page-1) * 10).limit(10).toArray();
       return res;
     } finally {
       console.log("AlignCareer: Closing db connection");

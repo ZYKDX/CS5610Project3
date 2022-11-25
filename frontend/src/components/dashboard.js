@@ -7,7 +7,8 @@ export default function Dashboard(props) {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    fetch("/listPosts", {
+    const p = new URLSearchParams(window.location.search);
+    fetch("/listPosts?p="+ (p.get("p") || "1"), {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

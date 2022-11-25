@@ -66,7 +66,7 @@ router.post("/updatePost", async (req, res) => {
 });
 
 router.get("/listPosts", async (req, res) => {
-  const posts = await myDB.listPosts();
+  const posts = await myDB.listPosts(req.query.p);
   res.json(posts);
 });
 
