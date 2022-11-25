@@ -59,3 +59,5 @@ export default function Dashboard(props) {
     </div>
   );
 }
+
+Dashboard.propTypes = {};

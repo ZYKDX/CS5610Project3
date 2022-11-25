@@ -92,3 +92,5 @@ async function getUser() {
   const profile = await res.json();
   return profile;
 }
+
+Profile.propTypes = {};

@@ -77,3 +77,5 @@ export default function Newpost() {
     </div>
   );
 }
+
+Newpost.propTypes = {};

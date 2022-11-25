@@ -142,3 +142,5 @@ async function getUser() {
   console.log(profile);
   return profile;
 }
+
+EditProfile.propTypes = {};

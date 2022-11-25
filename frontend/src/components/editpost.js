@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Header from "./header";
 
-export default function EditProfile() {
+export default function EditPost() {
   const [values, setValues] = useState({
     title: "",
     content: "",
@@ -130,3 +130,5 @@ async function getUser() {
   console.log(profile);
   return profile;
 }
+
+EditPost.propTypes = {};

@@ -72,3 +72,5 @@ async function getUsername() {
   }
   return json.user.user;
 }
+
+Header.propTypes = {};

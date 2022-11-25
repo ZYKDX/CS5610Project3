@@ -124,3 +124,5 @@ async function getUsername() {
   }
   return json.user.user;
 }
+
+Post.propTypes = {};
