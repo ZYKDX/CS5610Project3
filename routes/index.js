@@ -16,7 +16,7 @@ router.post("/authenticate", async (req, res) => {
   const user = req.body;
   const success = await myDB.authenticate(user);
   if (success.success) {
-    req.session.user = {user: user.user};
+    req.session.user = { user: user.user };
     res.json({
       isLoggedIn: true,
       err: null,
@@ -24,13 +24,13 @@ router.post("/authenticate", async (req, res) => {
     });
   } else {
     req.session.user = null;
-    res.json({isLoggedIn: false, err: "Wrong User or Password"});
+    res.json({ isLoggedIn: false, err: "Wrong User or Password" });
   }
 });
 
 router.get("/logout", (req, res) => {
   req.session.user = null;
-  res.json({isLoggedIn: false, msg: "Logout successful"});
+  res.json({ isLoggedIn: false, msg: "Logout successful" });
 });
 
 router.post("/api/signup", async (req, res) => {
@@ -38,11 +38,11 @@ router.post("/api/signup", async (req, res) => {
   const user = req.body;
   const success = await myDB.createUser(user);
   if (!success) {
-    res.json({isLoggedIn: false, err: "User alreay exists"});
+    res.json({ isLoggedIn: false, err: "User alreay exists" });
     return;
   }
-  req.session.user = {user: user.user};
-  res.json({isLoggedIn: true, err: null, user_details: success.user_details});
+  req.session.user = { user: user.user };
+  res.json({ isLoggedIn: true, err: null, user_details: success.user_details });
 });
 
 router.get("/getUser", async (req, res) => {
@@ -55,14 +55,14 @@ router.get("/getUser", async (req, res) => {
 router.post("/updateProfile", async (req, res) => {
   console.log(req.body);
   const diary = await myDB.updateProfile(req.session.user, req.body);
-  res.json({msg: "Profile updated"});
+  res.json({ msg: "Profile updated" });
 });
 
 router.post("/updatePost", async (req, res) => {
   console.log(req.body);
   //
   const diary = await myDB.updatePost(req.session.user, req.body);
-  res.json({msg: "Post updated"});
+  res.json({ msg: "Post updated" });
 });
 
 router.get("/listPosts", async (req, res) => {
@@ -73,19 +73,19 @@ router.get("/listPosts", async (req, res) => {
 router.post("/createPost", async (req, res) => {
   console.log(req.body);
   await myDB.createPost(req.body, req.session.user);
-  res.json({msg: "Post saved"});
+  res.json({ msg: "Post saved" });
 });
 
 router.post("/editDiary", async (req, res) => {
   console.log("updateDiary");
   const diary = await myDB.editDiary(req.query.id, req.body);
-  res.json({msg: "Diary updated"});
+  res.json({ msg: "Diary updated" });
 });
 
 router.get("/deletePost", async (req, res) => {
   console.log(req.query.id);
   const post = await myDB.deletePost(req.query.id);
-  res.json({msg: "Post deleted"});
+  res.json({ msg: "Post deleted" });
 });
 
 router.get("/getPost", async (req, res) => {

@@ -40,21 +40,21 @@ export default function Newpost() {
     <div>
       <Header></Header>
       <div class="container">
-      {message !== "" && (
-        <div
-          class="alert alert-warning alert-dismissible fade show"
-          role="alert"
-          id="msg"
-        >
-          <span id="msgContent">{message}</span>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
-        </div>
-      )}
+        {message !== "" && (
+          <div
+            class="alert alert-warning alert-dismissible fade show"
+            role="alert"
+            id="msg"
+          >
+            <span id="msgContent">{message}</span>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+        )}
         <div class="mt-4 mb-4 d-flex justify-content-between">
           <div class="h1">Post a new experience</div>
         </div>
