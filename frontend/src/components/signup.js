@@ -8,6 +8,7 @@ export default function Signup() {
     password: "",
     email: "",
   });
+  const [signupError, setSignupError] = useState("");
 
   async function onSubmit(evt) {
     console.log("submitting");
@@ -45,19 +46,21 @@ export default function Signup() {
 
   return (
     <div class="container mt-5">
-      <div
-        class="alert alert-warning alert-dismissible fade show"
-        role="alert"
-        id="msg"
-      >
-        <span id="msgContent"></span>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="alert"
-          aria-label="Close"
-        ></button>
-      </div>
+      {signupError !== "" && (
+        <div
+          class="alert alert-warning alert-dismissible fade show"
+          role="alert"
+          id="msg"
+        >
+          <span id="msgContent">{signupError}</span>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+      )}
       <h1 class="text-center">Create Account</h1>
       <form id="login" method="post" onSubmit={onSubmit}>
         <div class="form-outline mb-4">
