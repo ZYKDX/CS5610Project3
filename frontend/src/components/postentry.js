@@ -12,7 +12,7 @@ export default function Postentry(props) {
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">{props.title}</h5>
       </div>
-      <p class="mb-1">{props.content}</p>
+      <p class="mb-1 text-truncate">{props.content}</p>
       <small>Posted by: {props.author}</small>
     </a>
   );
