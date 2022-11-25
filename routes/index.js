@@ -58,13 +58,6 @@ router.post("/updateProfile", async (req, res) => {
   res.json({ msg: "Profile updated" });
 });
 
-router.post("/updatePost", async (req, res) => {
-  console.log(req.body);
-  //
-  const diary = await myDB.updatePost(req.session.user, req.body);
-  res.json({ msg: "Post updated" });
-});
-
 router.get("/listPosts", async (req, res) => {
   const posts = await myDB.listPosts(req.query.p);
   res.json(posts);
@@ -76,10 +69,9 @@ router.post("/createPost", async (req, res) => {
   res.json({ msg: "Post saved" });
 });
 
-router.post("/editDiary", async (req, res) => {
-  console.log("updateDiary");
-  const diary = await myDB.editDiary(req.query.id, req.body);
-  res.json({ msg: "Diary updated" });
+router.post("/updatePost", async (req, res) => {
+  await myDB.updatePost(req.query.id, req.body);
+  res.json({ msg: "Post updated" });
 });
 
 router.get("/deletePost", async (req, res) => {

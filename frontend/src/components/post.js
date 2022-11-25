@@ -47,6 +47,12 @@ export default function Post() {
     setTimeout(() => window.location.replace("/"), 2000);
   }
 
+  async function handleEdit(e) {
+    e.preventDefault();
+    const p = new URLSearchParams(window.location.search);
+    window.location.replace("/editpost?id=" + p.get("id"));
+  }
+
   return (
     <div class="container-md">
       <Header></Header>
@@ -75,6 +81,14 @@ export default function Post() {
         <div class="d-flex justify-content-center">
           {post.author === user ? (
             <div>
+              <button
+                id="edit"
+                type="button"
+                class="btn btn-primary mx-5"
+                onClick={handleEdit}
+              >
+                Edit
+              </button>
               <button
                 id="delete"
                 type="button"

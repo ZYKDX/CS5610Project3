@@ -6,6 +6,7 @@ import Homepage from "./homepage";
 import Profile from "./profile";
 import EditProfile from "./editprofile";
 import Post from "./post";
+import EditPost from "./editpost";
 import NewPost from "./newpost";
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/editprofile" element={<EditProfile />} />
         <Route path="/post" element={<Post />} />
+        <Route path="/editpost" element={<EditPost />} />
         <Route path="/newpost" element={<NewPost />} />
       </Routes>
     </BrowserRouter>

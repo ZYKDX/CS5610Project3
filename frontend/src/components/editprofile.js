@@ -31,7 +31,6 @@ export default function EditProfile() {
       ...profile,
       [evt.target.name]: value,
     });
-    console.log(profile);
   }
 
   async function onSubmit(evt) {

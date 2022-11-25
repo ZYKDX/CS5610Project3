@@ -57,26 +57,6 @@ function MyDB() {
       client.close();
     }
   };
-  //
-  myDB.updatePost = async function (user = {}, post = {}) {
-    let client;
-    try {
-      client = new MongoClient(mongoURL);
-      const users = client.db("AlignCareer").collection("posts");
-      console.log("user " + user);
-      console.log(profile);
-      const res = await users.updateOne({
-        $set: {
-          title: post.title,
-          content: post.content,
-        },
-      });
-      return res;
-    } finally {
-      console.log("AlignCareer: Closing db connection");
-      client.close();
-    }
-  };
   myDB.authenticate = async function (user = {}) {
     let client;
     try {
@@ -154,12 +134,12 @@ function MyDB() {
     }
   };
 
-  myDB.editDiary = async function (id = "", entry = {}) {
+  myDB.updatePost = async function (id = "", entry = {}) {
     let client;
     try {
       client = new MongoClient(mongoURL);
-      const diaries = client.db("AlignCareer").collection("diaries");
-      const res = await diaries.update(
+      const posts = client.db("AlignCareer").collection("posts");
+      const res = await posts.updateOne(
         { _id: ObjectId(id) },
         { $set: { content: entry.content } }
       );
