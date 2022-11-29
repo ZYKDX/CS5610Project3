@@ -45,8 +45,8 @@ Open a new terminal session, run npm start at frontend directory
 
 ### Presentation
 
-[Video Presentation](<[https://www.youtube.com/watch?v=pfqrOglsR2M&t=9s&ab_channel=SusieXu](https://www.youtube.com/watch?v=u-gddcXZNGU)>)  
-[Video Presentation 2](<[https://www.youtube.com/watch?v=n_TjUpL9cjI&ab_channel=SusieXu](https://www.youtube.com/watch?v=n_TjUpL9cjI&ab_channel=SusieXu)>)
+https://www.youtube.com/watch?v=u-gddcXZNGU 
+https://www.youtube.com/watch?v=n_TjUpL9cjI&ab_channel=SusieXu
 [Slides](https://docs.google.com/presentation/d/1xHSiI4RIAD5qmO-Z9f47vNc_YwWTZOMd/edit?usp=sharing&ouid=115810326221611098287&rtpof=true&sd=true)
 
 ### MIT License
