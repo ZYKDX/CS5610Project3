@@ -55,3 +55,5 @@ Open a new terminal session, run npm start at frontend directory
 ### Design doc
 
 [Online Career Development Forum Design Doc] https://github.com/ZYKDX/CS5610Project3/blob/main/Design%20Doc.pdf
+
+About 60% milestone, please see our project history prior to 11.15.2022. We have finished approximately before that date.
