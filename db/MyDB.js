@@ -17,7 +17,6 @@ function MyDB() {
       const response = await users.findOne({ _id: new_user.insertedId });
       return { success: true, user_details: response };
     } finally {
-      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -29,7 +28,6 @@ function MyDB() {
       const res = await users.findOne({ user: user.user });
       return res;
     } finally {
-      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -53,7 +51,6 @@ function MyDB() {
       );
       return res;
     } finally {
-      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -69,7 +66,6 @@ function MyDB() {
       }
       return { success: true, user_details: userInDb };
     } finally {
-      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -86,7 +82,6 @@ function MyDB() {
       });
       return res;
     } finally {
-      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -102,7 +97,6 @@ function MyDB() {
         .toArray();
       return res;
     } finally {
-      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -114,7 +108,6 @@ function MyDB() {
       const res = await posts.findOne({ _id: ObjectId(id) });
       return res;
     } finally {
-      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -129,7 +122,6 @@ function MyDB() {
       console.log(id);
       return res.email;
     } finally {
-      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -145,7 +137,6 @@ function MyDB() {
       );
       return res;
     } finally {
-      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
@@ -157,7 +148,6 @@ function MyDB() {
       const res = await posts.deleteOne({ _id: ObjectId(id) });
       return res;
     } finally {
-      console.log("AlignCareer: Closing db connection");
       client.close();
     }
   };
