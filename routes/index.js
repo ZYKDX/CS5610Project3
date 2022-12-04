@@ -3,8 +3,8 @@ import myDB from "../db/MyDB.js";
 
 const router = express.Router();
 
+// suggest using /api/getCurrentUser
 router.get("/getCurrentUser", (req, res) => {
-  console.log("getCurrentUser", req.session);
   res.json({
     isLoggedIn: !!req.session.user,
     user: req.session.user,
@@ -46,8 +46,6 @@ router.post("/api/signup", async (req, res) => {
 });
 
 router.get("/getUser", async (req, res) => {
-  console.log("getUser");
-  console.log(req);
   const user = await myDB.getUser(req.session.user);
   res.json(user);
 });
@@ -64,7 +62,6 @@ router.get("/listPosts", async (req, res) => {
 });
 
 router.post("/createPost", async (req, res) => {
-  console.log(req.body);
   await myDB.createPost(req.body, req.session.user);
   res.json({ msg: "Post saved" });
 });
@@ -75,19 +72,16 @@ router.post("/updatePost", async (req, res) => {
 });
 
 router.get("/deletePost", async (req, res) => {
-  console.log(req.query.id);
   await myDB.deletePost(req.query.id);
   res.json({ msg: "Post deleted" });
 });
 
 router.get("/getPost", async (req, res) => {
-  console.log(req.query.id);
   const post = await myDB.getPost(req.query.id);
   res.json(post);
 });
 
 router.get("/getEmail", async (req, res) => {
-  console.log(req.query.id);
   const post = await myDB.getEmail(req.query.id);
   res.json(post);
 });
